@@ -114,8 +114,8 @@ reddit-sentiment-analysis-nlp-project/
 ### Installation
 ```bash
 # Clone repository
-git clone https://github.com/your-username/reddit-sentiment-analysis-nlp-project.git
-cd reddit-sentiment-analysis-nlp-project
+git clone https://github.com/natashafatii/reddit-post-classification.git
+cd reddit-post-classification
 
 # Create virtual environment (optional)
 python -m venv venv
