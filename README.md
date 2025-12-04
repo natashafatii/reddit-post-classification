@@ -1,163 +1,129 @@
-# 📊 Reddit Sentiment Analysis & Topic Classification - Complete NLP Project
+# 📊 Reddit Sentiment Analysis & Topic Classification – NLP Project
 
-![Python](https://img.shields.io/badge/Python-3.9+-3776AB?logo=python&logoColor=white)
-![PowerBI](https://img.shields.io/badge/Power_BI-F2C811?logo=powerbi&logoColor=black)
-![NLP](https://img.shields.io/badge/NLP-Sentiment_Analysis-4CAF50)
-![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white)
-![Colab](https://img.shields.io/badge/Google_Colab-F9AB00?logo=googlecolab&logoColor=white)
-![Status](https://img.shields.io/badge/Project-Complete-00C853)
-![License](https://img.shields.io/badge/License-MIT-blue)
+[![Python 3.9+](https://img.shields.io/badge/Python-3.9+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Power BI](https://img.shields.io/badge/Power_BI-F2C811?logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
+[![NLP](https://img.shields.io/badge/NLP-Sentiment_Analysis-4CAF50)](https://en.wikipedia.org/wiki/Natural_language_processing)
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?logo=jupyter&logoColor=white)](https://jupyter.org/)
+[![Google Colab](https://img.shields.io/badge/Google_Colab-F9AB00?logo=googlecolab&logoColor=white)](https://colab.research.google.com/)
+[![Status](https://img.shields.io/badge/Status-Complete-00C853)]()
+[![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
 
-## 🎯 **Project Overview**
-
-**A comprehensive end-to-end Natural Language Processing (NLP) project** that analyzes Reddit posts to perform sentiment analysis and topic classification. This project demonstrates the complete data science pipeline from data collection to interactive dashboard deployment.
+A complete end-to-end **Natural Language Processing (NLP) pipeline** for sentiment analysis and topic classification of Reddit posts, featuring data collection, preprocessing, modeling, and an interactive Power BI dashboard.
 
 ---
 
-## 🚀 **Live Interactive Dashboard**
+## 🔗 Live Dashboard
 
-### **📊 Public Power BI Dashboard**
-[![Power BI Live Dashboard](https://img.shields.io/badge/🔗_LIVE_DASHBOARD-FF4500?style=for-the-badge&logo=powerbi&logoColor=white)](https://app.powerbi.com/view?r=eyJrIjoiY2JhZjM2NzMtNzUxMS00ZjBjLWFiNGYtZGIwMzU0NDk2NzZlIiwidCI6IjkwMWQ5YTk5LTI3NTgtNGM5ZS1iNWM3LTI2MWM2OTIwZmQzNyIsImMiOjl9)
+### 📊 Public Power BI Dashboard
+[![Open in Power BI](https://img.shields.io/badge/🚀_View_Live_Dashboard-FF4500?style=for-the-badge&logo=powerbi&logoColor=white)](https://app.powerbi.com/view?r=eyJrIjoiY2JhZjM2NzMtNzUxMS00ZjBjLWFiNGYtZGIwMzU0NDk2NzZlIiwidCI6IjkwMWQ5YTk5LTI3NTgtNGM5ZS1iNWM3LTI2MWM2OTIwZmQzNyIsImMiOjl9)
 
-**🔗 Direct Link:**  
+**Direct Link:**  
 `https://app.powerbi.com/view?r=eyJrIjoiY2JhZjM2NzMtNzUxMS00ZjBjLWFiNGYtZGIwMzU0NDk2NzZlIiwidCI6IjkwMWQ5YTk5LTI3NTgtNGM5ZS1iNWM3LTI2MWM2OTIwZmQzNyIsImMiOjl9`
 
-**✅ Features:**
-- Real-time sentiment filtering
-- Interactive topic visualization
-- Subreddit comparison
-- Date range selection
-- **No login required** - Fully public access
+**Dashboard Features:**
+- Interactive sentiment filtering (Positive/Neutral/Negative)
+- Topic-wise post distribution
+- Subreddit comparison charts
+- Date-range selectors
+- Real-time visual updates
+- **Public access – no login required**
 
 ---
 
-## 📋 **Project Structure**  
+## 📂 Repository Structure
+```
+reddit-sentiment-analysis-nlp-project/
+├── 📁 data/ # Datasets
+│ ├── raw_reddit_data.csv
+│ ├── preprocessed_reddit_data.csv
+│ ├── reddit_live_data.csv
+│ └── classified_reddit_data.csv
+├── 📁 notebooks/ # Colab Notebooks
+│ └── ids_4.ipynb
+├── 📁 dashboard/ # Power BI Assets
+│ └── ids_4.pbix
+├── PROJECT_SUMMARY_REPORT.pdf
+└── README.md # This File
+```
 ---
 
-## 🎬 **Quick Navigation**
+## 🧠 Project Workflow
 
-| Section | Content | Files |
-|---------|---------|-------|
-| **📊 Dashboard** | Live Power BI Dashboard | `dashboard/` |
-| **📓 Notebooks** | Complete Jupyter Notebooks | `notebooks/` |
-| **📄 Reports** | Project Reports | `reports/` |
-| **📁 Data** | All CSV Files | `data/` |
-| **🖼️ Screenshots** | Output Visuals | `screenshots/` |
-| **🐍 Code** | Python Scripts | `src/` |
+### 1. **Data Collection**  
+- **Tool:** PRAW (Python Reddit API Wrapper)  
+- **Subreddits:** `r/technology`, `r/mentalhealth`, `r/AskReddit`  
+- **Volume:** 60 posts (20 per subreddit)  
+- **Fields:** Title, body, author, score, comment count, timestamp  
 
----
+### 2. **Text Preprocessing**  
+- Lowercasing, punctuation/URL/mention removal  
+- Custom Reddit stopword list + NLTK stopwords  
+- Tokenization & text normalization  
 
-## 🔍 **Project Workflow**
+### 3. **Sentiment Analysis**  
+- **Models:** VADER (rule-based) + TextBlob (lexicon-based)  
+- **Labels:** Positive (😊), Neutral (😐), Negative (😔)  
+- **Agreement Rate:** 85% between models  
 
-### **📥 1. Data Collection**
-- **Source**: Reddit API via PRAW
-- **Subreddits**: r/technology, r/mentalhealth, r/AskReddit
-- **Posts Collected**: 60 (20 from each subreddit)
-- **Data Extracted**: Title, Body, Author, Upvotes, Comments, Timestamp
+### 4. **Topic Classification**  
+- Keyword-based classification into 5 topics:  
+  - Technology, Mental Health, Education, Entertainment, Politics  
+- Manual validation for accuracy assurance  
 
-**📁 Files:** `notebooks/01_reddit_data_collection.ipynb`, `data/raw_reddit_data.csv`
-
-### **🧹 2. Text Preprocessing**
-- Lowercasing & punctuation removal
-- URL, mention, hashtag removal
-- Stopword removal (NLTK + custom Reddit stopwords)
-- Tokenization & text normalization
-
-**📁 Files:** `notebooks/02_text_cleaning_preprocessing.ipynb`, `data/preprocessed_reddit_data.csv`
-
-### **📊 3. Sentiment Analysis**
-- **Dual-Model Approach**: VADER + TextBlob
-- **Sentiment Labels**: Positive 😊, Neutral 😐, Negative 😔
-- **Combination Logic**: Agreement-based decision making
-- **Performance**: 85% model agreement rate
-
-**📁 Files:** `notebooks/03_sentiment_topic_classification.ipynb`
-
-### **🏷️ 4. Topic Classification**
-- **Method**: Keyword-based classification
-- **Topics**: Technology, Mental Health, Education, Entertainment, Politics
-- **Accuracy**: Manual validation performed
-
-**📁 Files:** `notebooks/03_sentiment_topic_classification.ipynb`, `data/classified_reddit_data.csv`
-
-### **📈 5. Visualization & Dashboard**
-- **Power BI Dashboard**: Interactive visualizations
-- **Public Deployment**: Published to Power BI Web Service
-- **Features**: Real-time filtering, multiple visualizations
-
-**📁 Files:** `dashboard/reddit_sentiment_dashboard.pbix`, `notebooks/05_powerbi_dashboard_setup.ipynb`
+### 5. **Dashboard & Visualization**  
+- Built in Power BI with interactive visuals  
+- Published to Power BI Service for public access  
+- Supports filtering by sentiment, topic, date, and subreddit  
 
 ---
 
-## 📊 **Key Results & Metrics**
+## 📈 Key Results
 
-| Metric | Value | Insight |
-|--------|-------|---------|
-| **Total Posts Analyzed** | 60 | Balanced across 3 subreddits |
-| **Sentiment Distribution** | Positive: 42% | Mostly positive discussions |
-| **Model Agreement Rate** | 85% | High consistency between VADER & TextBlob |
-| **Most Common Topic** | Technology | Dominant in r/technology |
-| **Dashboard Accessibility** | Public | No authentication required |
-| **Data Reduction** | 25-40% | Through preprocessing |
-
----
-
-## 🛠️ **Technology Stack**
-
-| Component | Technology | Purpose |
-|-----------|------------|---------|
-| **Programming** | Python 3.9 | Main language |
-| **Data Collection** | PRAW | Reddit API wrapper |
-| **NLP Processing** | NLTK, TextBlob, VADER | Text analysis |
-| **Data Manipulation** | Pandas, NumPy | Data processing |
-| **Visualization** | Power BI, Matplotlib | Dashboard & charts |
-| **Notebooks** | Jupyter, Google Colab | Development environment |
-| **Version Control** | Git, GitHub | Code management |
+| Metric | Result | Insight |
+|--------|--------|---------|
+| Total Posts | 60 | Balanced dataset from 3 subreddits |
+| Sentiment Distribution | Positive: 42% | Generally positive discourse |
+| Model Agreement | 85% | High reliability between VADER & TextBlob |
+| Dominant Topic | Technology | Most frequent in collected data |
+| Dashboard Availability | Public | Accessible without authentication |
+| Data Cleaned | 25–40% reduction | Effective preprocessing |
 
 ---
 
-## 📁 **File Details**
+## 🛠️ Tech Stack
 
-### **📓 Jupyter Notebooks:**
-1. **`01_reddit_data_collection.ipynb`** - Complete Reddit API data collection
-2. **`02_text_cleaning_preprocessing.ipynb`** - Full text preprocessing pipeline
-3. **`03_sentiment_topic_classification.ipynb`** - Sentiment analysis + topic classification
-4. **`04_data_visualization.ipynb`** - Data visualization code
-5. **`05_powerbi_dashboard_setup.ipynb`** - Power BI dashboard creation
-
-### **📄 Reports:**
-1. **`PROJECT_SUMMARY_REPORT.pdf`** - Executive summary of the project
-2. **`DETAILED_TECHNICAL_REPORT.pdf`** - Technical implementation details
-3. **`METHODOLOGY_DETAILS.md`** - Step-by-step methodology
-4. **`RESULTS_ANALYSIS.md`** - Detailed results interpretation
-
-### **📊 Dashboard Files:**
-1. **`reddit_sentiment_dashboard.pbix`** - Power BI dashboard file
-2. **`dashboard_screenshot.png`** - Dashboard preview
-3. **`powerbi_publication_proof.png`** - Publication confirmation
-
-### **📈 Data Files:**
-1. **`raw_reddit_data.csv`** - Original Reddit posts
-2. **`preprocessed_reddit_data.csv`** - Cleaned text data
-3. **`classified_reddit_data.csv`** - Final classified dataset
+| Layer | Technology | Use Case |
+|-------|------------|----------|
+| **Language** | Python 3.9+ | Core programming |
+| **Data Collection** | PRAW | Reddit API integration |
+| **NLP Libraries** | NLTK, TextBlob, VADER | Sentiment & text processing |
+| **Data Processing** | Pandas, NumPy | Data manipulation |
+| **Visualization** | Power BI, Matplotlib | Dashboards & plots |
+| **Development** | Jupyter, Google Colab | Interactive coding |
+| **Version Control** | Git, GitHub | Collaboration & tracking |
 
 ---
 
-## 🚀 **Getting Started**
+## 🚀 Quick Start
 
-### **Prerequisites:**
-- Python 3.9 or higher
+### Prerequisites
+- Python 3.9+
 - Reddit API credentials (for data collection)
-- Power BI Desktop (optional, for dashboard editing)
+- Power BI Desktop (optional, for editing `.pbix`)
 
-### **Installation:**
+### Installation
 ```bash
-# Clone the repository
-git clone https://github.com/YOUR_USERNAME/reddit-sentiment-analysis-nlp-project.git
+# Clone repository
+git clone https://github.com/your-username/reddit-sentiment-analysis-nlp-project.git
 cd reddit-sentiment-analysis-nlp-project
+
+# Create virtual environment (optional)
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
 
 # Set up environment variables
 cp .env.example .env
+# Edit .env with your Reddit API credentials
